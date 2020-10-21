@@ -1,0 +1,21 @@
+{
+	"name" : "abaco-unb/ggbook",
+	"description" : "Narrativas matemáticas dinâmicas com o GeoGebra",
+	"license" : "MIT",
+	"keywords" : [
+		"ggbook",
+		"geogebra"
+	],
+	"homepage" : "http://www.ggbook.com.br",
+	"require" : {
+		"php" : ">=5.3.3",
+		"zendframework/zendframework" : "=2.3.1",
+		"doctrine/doctrine-orm-module" : "^0.10.0",
+		"doctrine/orm": "2.5.6",
+    		"doctrine/annotations": "1.4.*",
+    		"doctrine/dbal": "2.5.4",
+		"zendframework/zend-queue": "dev-master",
+		"slm/queue-beanstalkd": "0.4.*"
+
+	}
+}

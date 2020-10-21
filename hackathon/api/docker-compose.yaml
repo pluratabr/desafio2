@@ -1,0 +1,50 @@
+version: "3.3"
+
+services:
+  elattesapp:
+    restart: always
+    build: ./
+    container_name: elattes-app
+    expose:
+      - 80
+    ports:
+      - 80:80
+    volumes:
+      - ./:/var/www/html
+    links:
+      - elattesdb
+    environment:
+      VIRTUAL_HOST: localhost
+      LETSENCRYPT_HOST: localhost
+      LETSENCRYPT_EMAIL: suporte@agencia-deep.com
+      DB_HOST: elattesdb
+      DB_PORT: 3310
+      DB_NAME: elattes
+      DB_USER: elattes
+      DB_PWD: D33pDbS3cr3t!
+
+  elattesdb:
+        image: mariadb
+        restart: always
+        environment:
+            - MYSQL_DATABASE=elattes
+            - MYSQL_ROOT_PASSWORD=D33pDbS3cr3t!R00t
+            - MYSQL_USER=elattes
+            - MYSQL_PASSWORD=D33pDbS3cr3t!
+        ports:
+            - 3310:3310
+        volumes:
+            - ".docker/database:/var/lib/mysql"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: elattesdb
+      PMA_USER: elattes
+      PMA_PASSWORD: D33pDbS3cr3t!
+      MYSQL_ROOT_PASSWORD: D33pDbS3cr3t!R00t
+    links: 
+      - elattesdb
+    ports:
+      - 8090:80

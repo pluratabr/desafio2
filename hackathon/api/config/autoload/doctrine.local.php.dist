@@ -1,0 +1,21 @@
+<?php
+/**
+ * 
+ */
+return array(
+    'doctrine' => array(
+        'connection' => array(
+            'orm_default' => array(
+                'driverClass' => 'Doctrine\DBAL\Driver\PDOMySql\Driver',
+                'params' => array(
+                        'host'     => getenv('ELATTES_DB_HOST'),
+                        'port'     => getenv('ELATTES_DB_PORT'),
+                        'charset'  => 'utf8',
+                        'dbname'   => getenv('ELATTES_DB_NAME'),
+                        'user'     => getenv('ELATTES_DB_USER'),
+                        'password' => getenv('ELATTES_DB_PWD')
+                )
+            ),
+        ),
+    ),
+);

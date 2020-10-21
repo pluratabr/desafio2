@@ -1,0 +1,72 @@
+version: "3.7"
+
+networks:
+  default:
+#     external:
+#       name: deepnet
+
+services:
+  api-hackaton-app:
+    restart: always
+    build: ./
+    container_name: api-hackathon-app
+    expose:
+      - 80
+    ports:
+      - 80:80
+    volumes:
+      - ./:/var/www/html
+    links:
+      - hackathondb
+    environment:
+      VIRTUAL_HOST: localhost
+    # networks:
+    #   - deepnet
+      
+  hackathondb:
+    image: mariadb
+    restart: always
+    environment:
+        - MYSQL_DATABASE=hackathon
+        - MYSQL_ROOT_PASSWORD=q1w2e3r4t5!
+        - MYSQL_USER=hackathon
+        - MYSQL_PASSWORD=q1w2e3r4t5y6r00t!
+    ports:
+        - 3306:3306
+    volumes:
+        - ".docker/database:/var/lib/mysql"
+    # networks:
+    #   - deepnet
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: 127.0.0.1
+      PMA_USER: hackathon
+      PMA_PASSWORD: q1w2e3r4t5!
+      MYSQL_ROOT_PASSWORD: q1w2e3r4t5y6r00t!
+    links: 
+      - hackathondb
+    ports:
+      - 8081:80
+    # networks:
+    #   - deepnet
+  maildev:
+      image: djfarrelly/maildev
+      container_name: vd_maildev
+      ports:
+          - 8003:80
+  mercure:
+    image: dunglas/mercure
+    environment:
+      # You should definitely change all these values in production
+      - JWT_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtZXJjdXJlIjp7InN1YnNjcmliZSI6WyJmb28iLCJiYXIiXSwicHVibGlzaCI6WyJmb28iXX19.afLx2f2ut3YgNVFStCx95Zm_UND1mZJ69OenXaDuZL8
+      - DEMO=1
+      - ALLOW_ANONYMOUS=1
+      - HEARTBEAT_INTERVAL=30s
+      - ADDR=:3000
+      - CORS_ALLOWED_ORIGINS=*
+      - PUBLISH_ALLOWED_ORIGINS=http://localhost:3000
+    ports:
+      - "3000:3000"
+        

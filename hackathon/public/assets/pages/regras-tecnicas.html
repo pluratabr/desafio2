@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Plurata - Data Analytics & Text Mining">
+    <meta name="author" content="Plurata">
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <title>Plurata - Data Analytics & Text Mining</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rancho">
+    <!--Morris Chart CSS -->
+    <link rel="stylesheet" href="assets/plugins/morris/morris.css">
+    <!-- App css -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- App favicon -->
+    <!--Morris Chart CSS -->
+    <link rel="stylesheet" href="assets/plugins/morris/morris.css">
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="assets/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+    <script src="assets/js/modernizr.min.js"></script>
+    <style>
+        .select2-container{
+            width: 200px !important;  
+        }
+        div.info {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-direction: column;
+            font-size: large;
+            font-family: 'Roboto';
+        }
+    </style>
+</head>
+
+<body>
+    <div id="droba-loader">
+        <div class="loader"></div>
+    </div>
+    <!-- Navigation Bar-->
+    <header id="topnav">
+        <div class="topbar-main">
+            <div class="container-fluid">
+                <!-- Logo container-->
+                <div class="logo">
+                    <!-- Image Logo -->
+                    <a href="../../index.html" class="logo">
+                        <img src="assets/images/logo-plurata.png" alt="" height="26" class="logo-small">
+                        <img src="assets/images/logo-plurata.png" alt="" height="24" class="logo-large">
+                    </a>
+                </div>
+                <!-- End Logo container-->
+                <div class="menu-extras topbar-custom">
+                    <ul class="list-unstyled topbar-right-menu float-right mb-0">
+                        <li class="menu-item">
+                            <!-- Mobile menu toggle-->
+                            <a class="navbar-toggle nav-link">
+                                <div class="lines">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </a>
+                            <!-- End mobile menu toggle-->
+                        </li>
+                        <li>
+                            <a class="btn btn-purple btn-trans waves-effect w-md waves-light m-b-5 btn-plurata"
+                                style="margin-top: 15px;" href="../../index.html">VOLTAR</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- end menu-extras -->
+                <div class="clearfix"></div>
+            </div> <!-- end container -->
+        </div>
+        <!-- end topbar-main -->
+        <div class="navbar-custom">
+            <div class="container-fluid">
+                <div id="navigation">
+                    <!-- Navigation Menu-->
+                    <ul class="navigation-menu">
+                        <li>
+                            <a href="desafio2.html"><i class="mdi mdi-view-dashboard"></i><span> Dashboard </span></a>
+                        </li>
+                        <li>
+                            <a href="./dashboard2-d2.html"><i class="mdi mdi-view-dashboard"></i><span>Dashboard 2</span></a>
+                        </li>
+                        <li>
+                            <a href="./plugin-advogado.html"><i class="mdi mdi-puzzle"></i><span> Plug-in Cadastro </span></a>
+                        </li>
+                        <li>
+                            <a href="./regras-tecnicas.html"><i class="mdi mdi-tune-vertical"></i><span> Regras Técnicas </span></a>
+                        </li>
+                        <li class="pull-right hide-phone m-t-15">
+                            DESAFIO 2
+                        </li>
+                    </ul>
+
+                    <!-- End navigation menu -->
+                </div> <!-- end #navigation -->
+            </div> <!-- end container -->
+        </div> <!-- end navbar-custom -->
+    </header>
+    <!-- End Navigation Bar-->
+    <div class="wrapper">
+        <div class="container-fluid">
+            <!-- Page-Title -->
+            <div class="row">
+                <div class="col-sm-3">
+                    <h4 class="page-title">Regras Técnicas </h4>
+                </div>
+                <div class="col-sm-9">
+                    <div class="pull-right" style="padding-top: 15px; margin-left: 15px;">
+                        <select class="select2">
+                            <option value="CT">Vara</option>
+                            <option value="CT">Gabinete da Presidencia</option>
+                            <option value="DE">Secretaria-Geral Judiciária</option>
+                            <option value="FL">SEXTA TURMA</option>
+                            <option value="GA">QUINTA TURMA</option>
+                            <option value="IN">GAbinete da Vice Presidência</option>
+                            <option value="ME">QUARTA TURMA</option>
+                        </select>
+                    </div>
+                    <div class="pull-right" style="padding-top: 15px; margin-left: 15px;">
+                        <select class="select2">
+                            <option value="CT">Tribunal</option>
+                            <option value="CT">TRE</option>
+                            <option value="DE">TST</option>
+                            <option value="FL">STJ</option>
+                            <option value="GA">TRF4</option>
+                            <option value="IN">TRF3</option>
+                            <option value="ME">TRF5</option>
+                            <option value="MD">TRF2</option>
+                            <option value="MA">TRF1</option>
+                            <option value="MI">TJM</option>
+                            <option value="NH">STM</option>
+                        </select>
+                    </div>
+                    <div class="pull-right" style="padding-top: 15px;margin-left: 15px;">
+                        <select class="select2">
+                            <option value="CT">Justiça</option>
+                            <option value="CT">G1</option>
+                            <option value="DE">SUP</option>
+                            <option value="FL">G2</option>
+                            <option value="GA">Sup</option>
+                            <option value="IN">JE</option>
+                            <option value="ME">TR</option>
+                            <option value="MD">TRU</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-xl-6 col-md-6">
+                    <div class="card-box"  style="min-height: 160px !important;">
+                        <h4 class="header-title mb-3">Total de processos</h4>
+                        <div class="widget-box-2">
+                            <div class="widget-detail-2">
+                                <div class="pull-left dsha"><i class="mdi mdi-file-document"></i></div>
+                                <h2 class="mb-0"> 10.000,00 </h2>
+                                <p class="text-muted"><small >Atualizado em 20.10.2020 às 10h20m</small></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-box"  style="min-height: 160px !important;">
+                        <h4 class="header-title mb-3">Total processos com inconsistências </h4>
+                        <div class="widget-box-2">
+                            <div class="widget-detail-2">
+                                <div class="pull-left dsha" style="color: #ff5b5b;"><i class="mdi mdi-file-tree"></i></div>
+                                <h2 class="mb-0"> 2.624,00 </h2>
+                                <p class="text-muted"><small >Atualizado em 20.10.2020 às 10h20m</small></p>
+                            </div>
+                            <div class="progress progress-bar-danger-alt progress-sm mb-0">
+                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="26.24" aria-valuemin="0" aria-valuemax="100" style="width: 26.24%;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-xl-6 col-md-6">
+                    <div class="card-box">
+                        <div class="col">
+                            <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-xl-12 col-md-12">
+                    <div class="card-box">
+                        <div class="m-b-15 m-t-15">
+                            <label for="apartirde" class="col-form-label">Campo de Pesquisa</label>
+                            <input id="apartirde" placeholder="Digite o numero do processo ou a classe ou o assunto"
+                                class="form-control"></input>
+                        </div>
+                        <div class="card-box table-responsive">
+                            <table id="associacoes" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Número do Processo</th>
+                                        <th>Associação problemática</th>
+                                        <th>
+                                            <button class="btn btn-icon waves-effect m-b-5" style="color: red;">
+                                                <i class="fa fa-trash"></i>
+                                            </button>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            1234567.99.2020.5.23.0010
+                                        </td>
+                                        <td>
+                                            <span>
+                                                SEÇÃO CÍVEL (1385) >
+                                                <span style="color: red;">Incidentes (10969)</span>
+                                                >
+                                                <span style="color: red;">Inscrição/Registro de Embarcação (5603)</span>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-icon waves-effect m-b-5">
+                                                <i class="fa fa-minus"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <ul class="pagination justify-content-end">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Next</a>
+                                </li>
+                            </ul>
+                            <div class="col-6">
+                                <button class="btn btn-primary waves-effect waves-light" data-toggle="modal"
+                                    data-target="#novaAssociacao">Inserir Nova</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end wrapper -->
+        <!-- Footer -->
+        <footer class="footer_area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <p>Copyright &copy; 2020 <a href="#">Plarata - Data Analytics & Text Mining</a></p>
+                        <a href="https://gitlab.elattes.com.br/justica/hackathon/-/commits/master"><img
+                                alt="pipeline status"
+                                src="https://gitlab.elattes.com.br/justica/hackathon/badges/master/pipeline.svg" /></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <div id="novaAssociacao" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title mt-0" id="mySmallModalLabel">Preencha os Campos a seguir</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <div>
+                                    <label for="inputSecao" class="col-form-label">Classe *</label>
+                                    <select id="inputSecao" class="form-control">
+                                        <option>Escolha uma Classe</option>
+                                        <option>(120) Mandado de Segurança Cível</option>
+                                        <option>(12727) Execução de Pena de Multa</option>
+                                        <option>(11528) Ação Penal Eleitoral</option>
+                                        <option>(11551) Consulta</option>
+                                        <option>(198) Apelação Cível</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="inputClasse" class="col-form-label">Assunto *</label>
+                                    <select id="inputClasse" class="form-control">
+                                        <option>Escolha uma Assunto</option>
+                                        <option>(11069) Crime Culposo</option>
+                                        <option>(11085) Livramento Condicional</option>
+                                        <option>(4310) Fiança</option>
+                                        <option>(10904) Prisão Domiciliar / Especial</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary waves-effect waves-light"
+                                data-dismiss="modal">Adicionar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- End Footer -->
+        <!-- jQuery  -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/popper.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/detect.js"></script>
+        <script src="assets/js/fastclick.js"></script>
+        <script src="assets/js/jquery.blockUI.js"></script>
+        <script src="assets/js/waves.js"></script>
+        <script src="assets/js/jquery.nicescroll.js"></script>
+        <script src="assets/js/jquery.slimscroll.js"></script>
+        <script src="assets/js/jquery.scrollTo.min.js"></script>
+        <!--Morris Chart-->
+        <script src="assets/plugins/morris/morris.min.js"></script>
+        <script src="assets/plugins/raphael/raphael-min.js"></script>
+        <!-- App js -->
+        <script src="assets/js/jquery.core.js"></script>
+        <script src="assets/js/jquery.app.js"></script>
+        <script src="assets/js/main.js"></script>
+        <script src="assets/js/pages/dashboard1.js"></script>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+        <script src="assets/plugins/select2/js/select2.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            jQuery(document).ready(function() {
+                // init Select2
+                $(".select2").select2();
+            });
+        </script>
+        <script>
+            window.onload = function () {
+                const chart = new CanvasJS.Chart("chartContainer", {
+                    animationEnabled: true,
+                    title: {
+                        text: `Processos com Inconsistências - ${new Date().getFullYear()}`
+                    },
+                    data: [{
+                        type: "pie",
+                        startAngle: 90,
+                        yValueFormatString: "##0.00\"%\"",
+                        indexLabel: "{label} {y}",
+                        dataPoints: [
+                            { y: 73.76, label: "OK" },
+                            { y: 26.24, label: "Inconsistentes" },
+                        ]
+                    }]
+                });
+                chart.render();
+            }
+        </script>
+
+</body>
+
+</html>

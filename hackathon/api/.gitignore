@@ -1,0 +1,30 @@
+# Zend #
+#####################
+nbproject
+._*
+.~lock.*
+.buildpath
+.idea
+.project
+.settings
+INSTALL.txt
+
+# Composer #
+############
+#composer.lock
+#composer.phar
+vendor
+
+# OS #
+######
+.DS_Store
+
+# Docker #
+######
+
+.docker
+
+# api #
+######
+data/DoctrineORMModule/Proxy/*.php
+config/autoload/doctrine.local.php
