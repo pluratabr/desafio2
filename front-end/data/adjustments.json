@@ -1,0 +1,28 @@
+{
+    "data": [
+        {
+            "id": 0,
+            "processo": "1234567.99.2020.5.23.0010",
+            "classe": 1385,
+            "assunto": 10969,
+            "ocorrencia": 54,
+            "valido": "SIM"
+        },
+        {
+            "id": 1,
+            "processo": "1234567.99.2020.5.23.0011",
+            "classe": 7,
+            "assunto": 6063,
+            "ocorrencia": 7,
+            "valido": "NÃO"
+        },
+        {
+            "id": 2,
+            "processo": "1234567.99.2020.5.23.1211",
+            "classe": 102,
+            "assunto": 1345,
+            "ocorrencia": 1000,
+            "valido": "SIM"
+        }
+    ]
+}

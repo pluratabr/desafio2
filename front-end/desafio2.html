@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Plurata - Data Analytics & Text Mining">
+    <meta name="author" content="Plurata">
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <title>Plurata - Data Analytics & Text Mining</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rancho">
+    <!--Morris Chart CSS -->
+    <link rel="stylesheet" href="assets/plugins/morris/morris.css">
+    <!-- App css -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- App favicon -->
+    <!--Morris Chart CSS -->
+    <link rel="stylesheet" href="assets/plugins/morris/morris.css">
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+    <script src="assets/js/modernizr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-treemap@0.2.3"></script>
+
+
+    <style type="text/css">  
+       
+        .container-holder { 
+            width:600px; 
+            height:190px; 
+            display: flex;
+            justify-content: space-around;
+            width: 100% !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            flex-wrap: wrap;
+            height: 100%;
+            align-items: center;
+        } 
+        #st-box { 
+            float:left; 
+            width:500px; 
+            height:376px; 
+            background-color:white; 
+        } 
+        #nd-box { 
+            float:left; 
+            width:500px; 
+            height:376px; 
+            background-color:white;  
+            margin-left:20px; 
+        } 
+
+        #middle-box { 
+            float:left; 
+            width:500px; 
+            height:376px; 
+            background-color:white;  
+            margin-left:20px; 
+        } 
+        #rd-box { 
+            float:right; 
+            width:500px; 
+            height:376px; 
+            background-color:white; 
+        } 
+
+        </style>  
+</head>
+
+<body>
+    <div id="droba-loader">
+        <div class="loader"></div>
+    </div>
+    <!-- Navigation Bar-->
+    <header id="topnav">
+        <div class="topbar-main">
+            <div class="container-fluid">
+                <!-- Logo container-->
+                <div class="logo">
+                    <!-- Image Logo -->
+                    <a href="../../index.html" class="logo">
+                        <img src="assets/images/logo-plurata.png" alt="" height="26" class="logo-small">
+                        <img src="assets/images/logo-plurata.png" alt="" height="24" class="logo-large">
+                    </a>
+                </div>
+                <!-- End Logo container-->
+                <div class="menu-extras topbar-custom">
+                    <ul class="list-unstyled topbar-right-menu float-right mb-0">
+                        <li class="menu-item">
+                            <!-- Mobile menu toggle-->
+                            <a class="navbar-toggle nav-link">
+                                <div class="lines">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </a>
+                            <!-- End mobile menu toggle-->
+                        </li>
+                        <li>
+                            <a class="btn btn-purple btn-trans waves-effect w-md waves-light m-b-5 btn-plurata"
+                                style="margin-top: 15px;" href="https://hackathon.plurata.com.br">VOLTAR</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- end menu-extras -->
+                <div class="clearfix"></div>
+            </div> <!-- end container -->
+        </div>
+        <!-- end topbar-main -->
+        <div class="navbar-custom">
+            <div class="container-fluid">
+                <div id="navigation">
+                    <!-- Navigation Menu-->
+                    <ul class="navigation-menu">
+                        <li>
+                            <a href="desafio2.html" style="color:#47169d;"><i class="mdi mdi-view-dashboard"></i><span> Dados Gerais </span></a>
+                        </li>
+                        <li>
+                            <a href="./inconsistencias.html"><i class="mdi mdi-view-dashboard"></i><span> Inconsistências</span></a>
+                        </li>
+                        <li>
+                            <a href="./regras-tecnicas.html"><i class="mdi mdi-tune-vertical"></i><span> Regras Técnicas - Plugin </span></a>
+                        </li>
+                    </ul>
+                    <!-- End navigation menu -->
+                </div> <!-- end #navigation -->
+            </div> <!-- end container -->
+        </div> <!-- end navbar-custom -->
+    </header>
+    <!-- End Navigation Bar-->
+    <div class="wrapper">
+        <div class="container-wrapper">
+            <!-- Page-Title -->
+            <div class="col-sm-12">
+                <h4 class="page-title">Dashboard...</h4>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-xl-3 col-md-6">
+                    <div class="card-box">
+                        
+                        <h4 class="header-title mb-3">Total de Processos</h4>
+                        <div class="widget-box-2">
+                            <div class="widget-detail-2">
+                                <div class="pull-left dsha"><i class="mdi mdi-newspaper"></i></div>
+                                <h2 class="mb-0"> 49,548 </h2>
+                                <p class="text-muted">Últimas 24 horas</p>
+                            </div>
+                            <div class="progress progress-bar-info-alt progress-sm mb-0">
+                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-xl-3 col-md-6">
+                    <div class="card-box">
+                        
+                        <h4 class="header-title mb-3">Total de movimentações</h4>
+                        <div class="widget-box-2">
+                            <div class="widget-detail-2">
+                                <div class="pull-left dsha"><i class="mdi mdi-folder-move"></i></div>
+                                <h2 class="mb-0"> 9,548 </h2>
+                                <p class="text-muted">Últimas 24 horas</p>
+                            </div>
+                            <div class="progress progress-bar-info-alt progress-sm mb-0">
+                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="container-holder"> 
+                <div class="row">
+                    <div id="rd-box"> 
+                        <canvas class="card-box" id="radar-chart" width="800" height="600"></canvas>
+                    </div> 
+                    <div id="middle-box"> 
+                        <canvas class="card-box" id="canvas" height="250" width="300"></canvas>
+                    </div> 
+                </div>
+                <div class="row" style="margin-top: 75px;">
+                    <div id="nd-box"> 
+                        <canvas class="card-box" id="canvas2" height="250" width="300"></canvas>
+                    </div> 
+                    <div id="middle-box"> 
+                        <canvas class="card-box" id="canvas3" height="250" width="350"></canvas>
+                    </div> 
+                </div>
+            </div> 
+            <!-- <div class="container-holder"> 
+
+               
+                  
+
+            </div>  -->
+
+
+
+                <!-- end col -->
+            </div>
+        </div> <!-- end container -->
+
+        <!-- Right Sidebar -->
+        <div class="side-bar right-bar" style="display: block;">
+            <h4 class="mt-3">Notifications</h4>
+            <div class="notification-list nicescroll">
+                <ul class="list-group list-no-border user-list">
+                    <li class="list-group-item">
+                        <a href="index.html#" class="user-list-item">
+                            <div class="icon bg-info">
+                                <i class="mdi mdi-account"></i>
+                            </div>
+                            <div class="user-desc">
+                                <span class="name">New Signup</span>
+                                <span class="desc">There are new settings available</span>
+                                <span class="time">5 hours ago</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="index.html#" class="user-list-item">
+                            <div class="icon bg-info">
+                                <i class="mdi mdi-comment"></i>
+                            </div>
+                            <div class="user-desc">
+                                <span class="name">New Message received</span>
+                                <span class="desc">There are new settings available</span>
+                                <span class="time">1 day ago</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="index.html#" class="user-list-item">
+                            <div class="icon bg-info">
+                                <i class="mdi mdi-settings"></i>
+                            </div>
+                            <div class="user-desc">
+                                <span class="name">Settings</span>
+                                <span class="desc">There are new settings available</span>
+                                <span class="time">1 day ago</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="index.html#" class="user-list-item">
+                            <div class="icon bg-info">
+                                <i class="mdi mdi-account"></i>
+                            </div>
+                            <div class="user-desc">
+                                <span class="name">New Signup</span>
+                                <span class="desc">There are new settings available</span>
+                                <span class="time">2 hours ago</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="index.html#" class="user-list-item">
+                            <div class="icon bg-info">
+                                <i class="mdi mdi-comment"></i>
+                            </div>
+                            <div class="user-desc">
+                                <span class="name">New Message received</span>
+                                <span class="desc">There are new settings available</span>
+                                <span class="time">2 day ago</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="index.html#" class="user-list-item">
+                            <div class="icon bg-info">
+                                <i class="mdi mdi-settings"></i>
+                            </div>
+                            <div class="user-desc">
+                                <span class="name">Settings</span>
+                                <span class="desc">There are new settings available</span>
+                                <span class="time">2 day ago</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- end wrapper -->
+        <!-- Footer -->
+        <footer class="footer_area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <p>Copyright &copy; 2020 <a href="#">Plarata - Data Analytics & Text Mining</a></p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    <!-- End Footer -->
+    <script>
+        new Chart(document.getElementById("canvas").getContext("2d"), {
+        type: 'bar',
+        data: {
+        labels: ["1ª Vara da Fazenda Pública", "2ª VARA ESPECIALIZADA DA DÍVIDA ATIVA MUNICIPAL", "10ª VARA CÍVEL E EMPRESARIAL DE BELÉM", 
+        "Vara da Fazenda Púb Municipal, de Reg Púb e Ambiental", "1ª VARA DE FAZENDA PÚBLICA"],
+        datasets: [
+            {
+            label: "Processos",
+            backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+            data: [6338,4549,3824,2335,1866]
+            }
+        ]
+        },
+        options: {
+        legend: { display: false },
+        title: {
+            display: true,
+            text: 'Quantidade de Processos por Vara'
+        }
+        }
+    });
+
+    new Chart(document.getElementById("radar-chart"), {
+    type: 'radar',
+    data: {
+      labels: ["STF", "TRF", "STF", "TJRJ", "TJDFT"],
+      datasets: [
+        {
+          label: "2019",
+          fill: true,
+          backgroundColor: "rgba(179,181,198,0.2)",
+          borderColor: "rgba(179,181,198,1)",
+          pointBorderColor: "#fff",
+          pointBackgroundColor: "rgba(179,181,198,1)",
+          data: [8.77,55.61,21.69,6.62,6.82]
+        }, {
+          label: "2020",
+          fill: true,
+          backgroundColor: "rgba(255,99,132,0.2)",
+          borderColor: "rgba(255,99,132,1)",
+          pointBorderColor: "#fff",
+          pointBackgroundColor: "rgba(255,99,132,1)",
+          pointBorderColor: "#fff",
+          data: [25.48,54.16,7.61,8.06,4.45]
+        }
+      ]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Distribuição de Processos'
+      }
+    }
+});
+    var topTags = [
+    {
+        "descricaoclasseprocessual": "Execu\u00e7\u00e3o Fiscal",
+        "Quantidade Processos": 429634
+    },
+    {
+        "descricaoclasseprocessual": "A\u00e7\u00e3o Trabalhista - Rito Ordin\u00e1rio",
+        "Quantidade Processos": 295148
+    },
+    {
+        "descricaoclasseprocessual": "Procedimento Comum C\u00edvel",
+        "Quantidade Processos": 164048
+    },
+    {
+        "descricaoclasseprocessual": "Execu\u00e7\u00e3o de T\u00edtulo Extrajudicial",
+        "Quantidade Processos": 157766
+    },
+    {
+        "descricaoclasseprocessual": "A\u00e7\u00e3o Penal - Procedimento Ordin\u00e1rio",
+        "Quantidade Processos": 109074
+    },
+    {
+        "descricaoclasseprocessual": "Procedimento do Juizado Especial C\u00edvel",
+        "Quantidade Processos": 99602
+    },
+    {
+        "descricaoclasseprocessual": "A\u00e7\u00e3o Trabalhista - Rito Sumar\u00edssimo",
+        "Quantidade Processos": 98223
+    },
+    {
+        "descricaoclasseprocessual": "Cumprimento de senten\u00e7a",
+        "Quantidade Processos": 62975
+    },
+    {
+        "descricaoclasseprocessual": "Execu\u00e7\u00e3o Provis\u00f3ria em Autos Suplementares",
+        "Quantidade Processos": 61327
+    },
+    {
+        "descricaoclasseprocessual": "Inqu\u00e9rito Policial",
+        "Quantidade Processos": 47158
+    },
+    {
+        "descricaoclasseprocessual": "Recurso Ordin\u00e1rio Trabalhista",
+        "Quantidade Processos": 46991
+    },
+    {
+        "descricaoclasseprocessual": "Apela\u00e7\u00e3o C\u00edvel",
+        "Quantidade Processos": 37030
+    },
+    {
+        "descricaoclasseprocessual": "Carta Precat\u00f3ria C\u00edvel",
+        "Quantidade Processos": 27366
+    },
+    {
+        "descricaoclasseprocessual": "Termo Circunstanciado",
+        "Quantidade Processos": 27062
+    },
+    {
+        "descricaoclasseprocessual": "Recurso Inominado C\u00edvel",
+        "Quantidade Processos": 26544
+    },
+    {
+        "descricaoclasseprocessual": "Agravo de Instrumento em Recurso de Revista",
+        "Quantidade Processos": 26243
+    },
+    {
+        "descricaoclasseprocessual": "Invent\u00e1rio",
+        "Quantidade Processos": 23788
+    },
+    {
+        "descricaoclasseprocessual": "Execu\u00e7\u00e3o da Pena",
+        "Quantidade Processos": 23262
+    },
+    {
+        "descricaoclasseprocessual": "Peti\u00e7\u00e3o C\u00edvel",
+        "Quantidade Processos": 22517
+    },
+    {
+        "descricaoclasseprocessual": "Presta\u00e7\u00e3o de Contas Anual",
+        "Quantidade Processos": 21560
+    },
+    {
+        "descricaoclasseprocessual": "A\u00e7\u00e3o Penal de Compet\u00eancia do J\u00fari",
+        "Quantidade Processos": 20330
+    },
+    {
+        "descricaoclasseprocessual": "Carta Precat\u00f3ria Criminal",
+        "Quantidade Processos": 19597
+    },
+    {
+        "descricaoclasseprocessual": "Execu\u00e7\u00e3o Contra a Fazenda P\u00fablica",
+        "Quantidade Processos": 18170
+    },
+    {
+        "descricaoclasseprocessual": "Embargos \u00e0 Execu\u00e7\u00e3o",
+        "Quantidade Processos": 17266
+    },
+    {
+        "descricaoclasseprocessual": "Execu\u00e7\u00e3o de Certid\u00e3o de Cr\u00e9dito Judicial",
+        "Quantidade Processos": 16968
+    },
+    {
+        "descricaoclasseprocessual": "Agravo de Peti\u00e7\u00e3o",
+        "Quantidade Processos": 16420
+    },
+    {
+        "descricaoclasseprocessual": "Mandado de Seguran\u00e7a C\u00edvel",
+        "Quantidade Processos": 16124
+    }];
+
+    var assuntoTags = [{
+        "assuntonacionaldescricao": "D\u00edvida Ativa",
+        "Quantidade Processos": 55817
+    },
+    {
+        "assuntonacionaldescricao": "Requerimento",
+        "Quantidade Processos": 34007
+    },
+    {
+        "assuntonacionaldescricao": "DIREITO DO TRABALHO",
+        "Quantidade Processos": 27932
+    },
+    {
+        "assuntonacionaldescricao": "Presta\u00e7\u00e3o de Contas - De Exerc\u00edcio Financeiro",
+        "Quantidade Processos": 24041
+    },
+    {
+        "assuntonacionaldescricao": "Presta\u00e7\u00e3o de Contas - De Candidato",
+        "Quantidade Processos": 16256
+    },
+    {
+        "assuntonacionaldescricao": "Conselhos Regionais e Afins (Anuidade)",
+        "Quantidade Processos": 13626
+    },
+    {
+        "assuntonacionaldescricao": "Mat\u00e9ria Administrativa",
+        "Quantidade Processos": 12213
+    },
+    {
+        "assuntonacionaldescricao": "Expurgos Inflacion\u00e1rios / Planos Econ\u00f4micos",
+        "Quantidade Processos": 9276
+    },
+    {
+        "assuntonacionaldescricao": "Aux\u00edlio-Doen\u00e7a Previdenci\u00e1rio",
+        "Quantidade Processos": 8165
+    },
+    {
+        "assuntonacionaldescricao": "Contrabando ou descaminho ",
+        "Quantidade Processos": 7102
+    },
+    {
+        "assuntonacionaldescricao": "Multas e demais San\u00e7\u00f5es",
+        "Quantidade Processos": 6975
+    },
+    {
+        "assuntonacionaldescricao": "Contas",
+        "Quantidade Processos": 6830
+    },
+    {
+        "assuntonacionaldescricao": "Requerimento de Regulariza\u00e7\u00e3o da Situa\u00e7\u00e3o de Inadimpl\u00eancia de Presta\u00e7\u00e3o de Contas",
+        "Quantidade Processos": 6565
+    },
+    {
+        "assuntonacionaldescricao": "Filia\u00e7\u00e3o Partid\u00e1ria - Coexist\u00eancia",
+        "Quantidade Processos": 5951
+    },
+    {
+        "assuntonacionaldescricao": "Aposentadoria por Tempo de Contribui\u00e7\u00e3o (Art. 55/6)",
+        "Quantidade Processos": 5808
+    },
+    {
+        "assuntonacionaldescricao": "Honor\u00e1rios Advocat\u00edcios",
+        "Quantidade Processos": 5341
+    },
+    {
+        "assuntonacionaldescricao": "Registro de Candidatura - RRC - Candidato",
+        "Quantidade Processos": 5288
+    },
+    {
+        "assuntonacionaldescricao": "Aposentadoria por Invalidez",
+        "Quantidade Processos": 5256
+    },
+    {
+        "assuntonacionaldescricao": "Cargo - Vereador",
+        "Quantidade Processos": 4960
+    },
+    {
+        "assuntonacionaldescricao": "Tr\u00e1fico de Drogas e Condutas Afins",
+        "Quantidade Processos": 4515
+    },
+    {
+        "assuntonacionaldescricao": "Propaganda Pol\u00edtica - Propaganda Eleitoral - Hor\u00e1rio Eleitoral Gratuito/Inser\u00e7\u00f5es de Propaganda",
+        "Quantidade Processos": 4380
+    },
+    {
+        "assuntonacionaldescricao": "DIREITO CIVIL",
+        "Quantidade Processos": 4368
+    },
+    {
+        "assuntonacionaldescricao": "Cancelamento de Registro de Candidatura",
+        "Quantidade Processos": 4055
+    },
+    {
+        "assuntonacionaldescricao": "Alistamento Eleitoral - Duplicidade/Pluralidade",
+        "Quantidade Processos": 3947
+    },
+    {
+        "assuntonacionaldescricao": "Corre\u00e7\u00e3o Monet\u00e1ria",
+        "Quantidade Processos": 3937
+    },
+    {
+        "assuntonacionaldescricao": "Estelionato Majorado ",
+        "Quantidade Processos": 3877
+    },
+    {
+        "assuntonacionaldescricao": "Concess\u00e3o",
+        "Quantidade Processos": 3746
+    },
+    {
+        "assuntonacionaldescricao": "Indeniza\u00e7ao por Dano Moral",
+        "Quantidade Processos": 3527
+    },
+    {
+        "assuntonacionaldescricao": "DIREITO ELEITORAL",
+        "Quantidade Processos": 3471
+    },
+    {
+        "assuntonacionaldescricao": "Tomador de Servi\u00e7os / Terceiriza\u00e7\u00e3o",
+        "Quantidade Processos": 3369
+    },
+    {
+        "assuntonacionaldescricao": "Contratos Banc\u00e1rios",
+        "Quantidade Processos": 3350
+    },
+    {
+        "assuntonacionaldescricao": "SIMPLES",
+        "Quantidade Processos": 3242
+    },
+    {
+        "assuntonacionaldescricao": "Nulidade",
+        "Quantidade Processos": 3219
+    },
+    {
+        "assuntonacionaldescricao": "Filia\u00e7\u00e3o Partid\u00e1ria - Cancelamento",
+        "Quantidade Processos": 3211
+    }]
+
+    new Chart(document.getElementById("canvas2").getContext("2d"), {
+    type: "treemap",
+    data: {
+        datasets: [{
+        tree: topTags,
+        key: "Quantidade Processos",
+        groups: ['descricaoclasseprocessual'],
+        spacing: 0.5,
+        borderWidth: 1.5,
+        fontColor: "black",
+        borderColor: "grey"
+        }]
+    },
+    options: {
+        maintainAspectRatio: false,
+        legend: { display: false },
+        tooltips: { enabled: false },
+        title: {
+            display: true,
+            text: 'Quantitativo por classe'
+      }
+    }
+    });
+    
+    
+    new Chart(document.getElementById("canvas3").getContext("2d"), {
+    type: "treemap",
+    data: {
+        datasets: [{
+        tree: assuntoTags,
+        key: "Quantidade Processos",
+        groups: ['assuntonacionaldescricao'],
+        spacing: 0.5,
+        borderWidth: 1.5,
+        fontColor: "black",
+        borderColor: "grey"
+        }]
+    },
+    options: {
+        maintainAspectRatio: false,
+        legend: { display: false },
+        tooltips: { enabled: false },
+        title: {
+            display: true,
+            text: 'Quantitativo por assunto'
+        }
+    }
+    });
+    
+
+    </script>
+    <!-- jQuery  -->
+    <!-- jQuery  -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/detect.js"></script>
+    <script src="assets/js/fastclick.js"></script>
+    <script src="assets/js/jquery.blockUI.js"></script>
+    <script src="assets/js/waves.js"></script>
+    <script src="assets/js/jquery.nicescroll.js"></script>
+    <script src="assets/js/jquery.slimscroll.js"></script>
+    <script src="assets/js/jquery.scrollTo.min.js"></script>
+    <!--Morris Chart-->
+    <script src="assets/plugins/morris/morris.min.js"></script>
+    <script src="assets/plugins/raphael/raphael-min.js"></script>
+    <!-- App js -->
+    <script src="assets/js/jquery.core.js"></script>
+    <script src="assets/js/jquery.app.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/pages/dashboard1.js"></script>
+</body>
+
+</html>

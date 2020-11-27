@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Plurata - Data Analytics & Text Mining">
+    <meta name="author" content="Plurata">
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <title>Plurata - Data Analytics & Text Mining</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rancho">
+    <link rel="stylesheet" href="assets/plugins/morris/morris.css">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="assets/plugins/morris/morris.css">
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+    <!-- Notification css (Toastr) -->
+    <link href="assets/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+
+    <script src="assets/js/modernizr.min.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
+
+    <style>
+        span {
+            font-size: medium;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="droba-loader">
+        <div class="loader"></div>
+    </div>
+    <header id="topnav">
+        <div class="topbar-main">
+            <div class="container-fluid">
+                <!-- Logo container-->
+                <div class="logo">
+                    <!-- Image Logo -->
+                    <a href="../../index.html" class="logo">
+                        <img src="assets/images/logo-plurata.png" alt="" height="26" class="logo-small">
+                        <img src="assets/images/logo-plurata.png" alt="" height="24" class="logo-large">
+                    </a>
+                </div>
+                <!-- End Logo container-->
+                <div class="menu-extras topbar-custom">
+                    <ul class="list-unstyled topbar-right-menu float-right mb-0">
+                        <li class="menu-item">
+                            <!-- Mobile menu toggle-->
+                            <a class="navbar-toggle nav-link">
+                                <div class="lines">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </a>
+                            <!-- End mobile menu toggle-->
+                        </li>
+                        <li>
+                            <a class="btn btn-purple btn-trans waves-effect w-md waves-light m-b-5 btn-plurata"
+                                style="margin-top: 15px;" href="../../index.html">VOLTAR</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- end menu-extras -->
+                <div class="clearfix"></div>
+            </div> <!-- end container -->
+        </div>
+        <!-- end topbar-main -->
+        <div class="navbar-custom">
+            <div class="container-fluid">
+                <div id="navigation">
+                    <!-- Navigation Menu-->
+                    <ul class="navigation-menu">
+                        <li>
+                            <a href="desafio2.html"><i class="mdi mdi-view-dashboard"></i><span> Dashboard </span></a>
+                        </li>
+                        <li>
+                            <a href="./dashboard2-d2.html"><i class="mdi mdi-view-dashboard"></i><span>Dashboard 2</span></a>
+                        </li>
+                        <li>
+                            <a href="./plugin-advogado.html"><i class="mdi mdi-puzzle"></i><span> Plug-in Cadastro </span></a>
+                        </li>
+                        <li>
+                            <a href="./regras-tecnicas.html"><i class="mdi mdi-tune-vertical"></i><span> Regras Técnicas </span></a>
+                        </li>
+                        <li class="pull-right hide-phone m-t-15">
+                            DESAFIO 2
+                        </li>
+                    </ul>
+                    <!-- End navigation menu -->
+                </div> <!-- end #navigation -->
+            </div> <!-- end container -->
+        </div> <!-- end navbar-custom -->
+    </header>
+
+    <div class="wrapper">
+        <div class="container-fluid">
+            <!-- Page-Title -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <h4 class="page-title">Simulação plug-in...</h4>
+                </div>
+            </div>
+            <div class="col-xl">
+                <ul class="nav nav-tabs" id="tabs">
+                    <li class="nav-item">
+                        <a href="#dados_iniciais" data-toggle="tab" aria-expanded="false" class="nav-link active">
+                            Dados Iniciais
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#assuntos" data-toggle="tab" aria-expanded="true" class="nav-link">
+                            Assuntos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#partes" data-toggle="tab" aria-expanded="false" class="nav-link">
+                            Partes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#caracteristicas" data-toggle="tab" aria-expanded="false" class="nav-link">
+                            Características
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#peticoes_e_docs" data-toggle="tab" aria-expanded="false" class="nav-link">
+                            Incluir Petições e Documentos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#protocolar_inicial" data-toggle="tab" aria-expanded="false" class="nav-link">
+                            Protocolar Inicial
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="tab-content" style="background-color: white;">
+                    <div role="tabpanel" class="tab-pane fade show active" id="dados_iniciais">
+                        <div>
+                            <span><strong>Cadastro de processo</strong></span>
+                            <div class="form-group row">
+                                <div class="col">
+                                    <label for="inputSecao" class="col-form-label">Seção/Subção *</label>
+                                    <select id="inputSecao" class="form-control">
+                                        <option>Escolha uma Seção/Subseção</option>
+                                        <option>Seção Judiciária do Distrito Federal</option>
+                                    </select>
+                                </div>
+
+                                <div class="col">
+                                    <label for="inputClasse" class="col-form-label">Classe Judicial *</label>
+                                    <select id="inputClasse" class="form-control">
+                                        <option>Escolha uma Classe Judicial</option>
+                                        <option>Mandado de Segurança Cível (120)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button id="Tab1-Incluir" type="button"
+                                class="btn btn-primary btn-rounded w-md waves-effect waves-light m-b-5">
+                                Incluir
+                            </button>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="assuntos">
+                        <span><strong>Assuntos Associados *</strong></span>
+                        <div class="row" style="padding-top: 25px">
+                            <table class="table table-bordered col">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Cód</th>
+                                        <th>Assunto Principal</th>
+                                        <th>Assunto</th>
+                                        <th>Complementar?</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="assuntosSelecionados">
+                                    <tr style="display: none;">
+                                        <td id="ra" scope="row">
+                                            <button id="btn-rmv-assunto" class="btn btn-icon waves-effect m-b-5">
+                                                <i class="fa fa-arrow-right"></i>
+                                            </button>
+                                        </td>
+                                        <td>6062</td>
+                                        <td id="assunto-principal">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="principal"
+                                                    id="principal" value="option1" checked>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span>
+                                                DIREITO TRIBUTÁRIO (14) | Contribuições (6031) |Contribuições
+                                                Previdenciárias (6048) | 1/3 de férias (6062)
+                                            </span>
+                                        </td>
+                                        <td>Não</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="col">
+                                <div>
+                                    <label for="inputAssunto" class="col-form-label">Assunto</label>
+                                    <input id="inputAssunto" class="form-control"></input>
+                                </div>
+                                <div>
+                                    <label for="inputCodigo" class="col-form-label">Código</label>
+                                    <input id="inputCodigo" class="form-control"></input>
+                                </div>
+                                <div class="row" style="margin-top: 20px;">
+                                    <button class="btn btn-primary btn-rounded w-md waves-effect waves-light m-b-5"
+                                        style="margin-right: 15px;">Pesquisar
+                                    </button>
+                                    <button class="btn btn-rounded w-md waves-effect waves-light m-b-5">Limpar</button>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row" style="margin-top: 25px;">
+                            <div class="col"></div>
+                            <table id="assuntosDisponiveis" class="table table-bordered col">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Cód</th>
+                                        <th>Assunto</th>
+                                        <th>Complementar?</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td scope="row">
+                                            <button id="btn-add-assunto" class="btn btn-icon waves-effect m-b-5">
+                                                <i class="fa fa-arrow-left"></i>
+                                            </button>
+                                        </td>
+                                        <td>6062</td>
+                                        <td>
+                                            <span>
+                                                DIREITO TRIBUTÁRIO (14) | Contribuições (6031) |Contribuições
+                                                Previdenciárias (6048) | 1/3 de férias (6062)
+                                            </span>
+                                        </td>
+                                        <td>Não</td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">
+                                            <button id="btn-add-assunto" class="btn btn-icon waves-effect m-b-5">
+                                                <i class="fa fa-arrow-left"></i>
+                                            </button>
+                                        </td>
+                                        <td>10495</td>
+                                        <td>
+                                            <span>
+                                                DIREITO CIVIL (899) | Coisas (10432) | Anticrese (10495)</td>
+                                        </span>
+                                        <td>Não</td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">
+                                            <button id="btn-add-assunto" class="btn btn-icon waves-effect m-b-5">
+                                                <i class="fa fa-arrow-left"></i>
+                                            </button>
+                                        </td>
+                                        <td>10116 </td>
+                                        <td>
+                                            <span>
+                                                MEIO AMBIENTE (10110) | Agrotóxicos (10116)</td>
+                                        </span>
+                                        <td>Não</td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">
+                                            <button id="btn-add-assunto" class="btn btn-icon waves-effect m-b-5">
+                                                <i class="fa fa-arrow-left"></i>
+                                            </button>
+                                        </td>
+                                        <td>11037</td>
+                                        <td>
+                                            <span>
+                                                PROCESSO MILITAR (11028) | Processo Criminal (11030) | Ação Penal
+                                                Militar -
+                                                Procedimento Ordinário (11037)
+                                            </span>
+                                        </td>
+                                        <td>Não</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="partes">
+                        <div class="row">
+                            <div class="col">
+                                <span>Polo Ativo</span>
+                                <div class="shadow p-3 mb-5 bg-white rounded">
+                                    <button class="btn btn-icon waves-effect m-b-5">
+                                        <i class="fa fa-plus"></i>
+                                    </button>
+                                    <span>Parte</span>
+                                    <button class="btn btn-icon waves-effect m-b-5">
+                                        <i class="fa fa-plus"></i>
+                                    </button>
+                                    <span>Procurador | Terceiro Vinculado</span>
+                                </div>
+                                <table class="table table-bordered col">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Participante</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <button class="shadow btn btn-icon waves-effect m-b-5">
+                                                    <i class="fa fa-edit"></i>
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <span>
+                                                    Lorem Ipsum - OAB DF12345 - CPF 999.999.999-00 (ADVOGADO)
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col">
+                                <span>Polo Passivo</span>
+                                <div class="shadow p-3 mb-5 bg-white rounded">
+                                    <button class="btn btn-icon waves-effect m-b-5">
+                                        <i class="fa fa-plus"></i>
+                                    </button>
+                                    <span>Parte</span>
+                                    <button class="btn btn-icon waves-effect m-b-5">
+                                        <i class="fa fa-plus"></i>
+                                    </button>
+                                    <span>Procurador | Terceiro Vinculado</span>
+                                </div>
+                                <table class="table table-bordered col">
+                                    <caption>0 resultados encontrados</caption>
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Participante</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col">
+                                <span>Outro Participantes</span>
+                                <div class="shadow p-3 mb-5 bg-white rounded">
+                                    <button class="btn btn-icon waves-effect m-b-5">
+                                        <i class="fa fa-plus"></i>
+                                    </button>
+                                    <span>Participante</span>
+                                    <button class="btn btn-icon waves-effect m-b-5">
+                                        <i class="fa fa-plus"></i>
+                                    </button>
+                                    <span>Procurador | Terceiro Vinculado</span>
+                                </div>
+                                <table class="table table-bordered col">
+                                    <caption>0 resultados encontrados</caption>
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Participante</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col"></div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="caracteristicas">
+                        <strong>
+                            <span>Adicionar características do processo</span>
+                        </strong>
+                        <div class="shadow m-t-15 m-b-15">
+                            <div class="row">
+                                <div class="col m-l-15">
+                                    <label for="radioJusticaGratuita" class="col-form-label">Justiça Gratuita</label>
+                                    <br>
+                                    <div class="form-check-inline">
+                                        <input class="form-check-input" type="radio" name="exampleRadios1"
+                                            id="exampleRadios1" value="option1" checked>
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            Sim
+                                        </label>
+                                    </div>
+                                    <div class="form-check-inline">
+                                        <input class="form-check-input" type="radio" name="exampleRadios1"
+                                            id="exampleRadios2" value="option2">
+                                        <label class="form-check-label" for="exampleRadios2">
+                                            Não
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <label for="radioJusticaGratuita" class="col-form-label">Pedido de liminar ou de
+                                        antecipação de tutela?</label>
+                                    <br>
+                                    <div class="form-check-inline">
+                                        <input class="form-check-input" type="radio" name="exampleRadios2"
+                                            id="exampleRadios3" value="option3" checked>
+                                        <label class="form-check-label" for="exampleRadios3">
+                                            Sim
+                                        </label>
+                                    </div>
+                                    <div class="form-check-inline">
+                                        <input class="form-check-input" type="radio" name="exampleRadios2"
+                                            id="exampleRadios4" value="option4">
+                                        <label class="form-check-label" for="exampleRadios4">
+                                            Não
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div>
+                                        <label for="valor" class="col-form-label">Valor da causa (R$)</label>
+                                        <input name="valor" class="form-control"></input>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <Span>Possui Custas?</Span>
+                                    <br>
+                                    <span>
+                                        Clique <a href="#">aqui</a> <strong>para calcular as custas do processo</strong>
+                                    </span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary btn-rounded w-md waves-effect waves-light m-b-5 m-l-15"
+                                style="margin-right: 15px;">Salvar
+                            </button>
+                        </div>
+                        <strong>
+                            <span>Adicionar características do processo</span>
+                        </strong>
+                        <div class="shadow m-t-15">
+                            <div class="m-l-15">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios3"
+                                        id="exampleRadios5" value="option5" checked>
+                                    <label class="form-check-label" for="exampleRadios5">
+                                        Sim
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios3"
+                                        id="exampleRadios6" value="option6">
+                                    <label class="form-check-label" for="exampleRadios6">
+                                        Não
+                                    </label>
+                                </div>
+                            </div>
+                            <button
+                                class="btn btn-primary btn-rounded w-md waves-effect waves-light m-t-15 m-b-15 m-l-15">Gravar
+                                Sigilo
+                            </button>
+                        </div>
+                        <div class="shadow m-t-15">
+                            <div class="row">
+                                <div class="col-6 col-md-4 m-l-15">
+                                    <label for="prioproc" class="col-form-label">Prioridade Processo</label>
+                                    <select id="prioproc" class="form-control">
+                                        <option>Selecione</option>
+                                        <option>Alta</option>
+                                    </select>
+                                    <button
+                                        class="btn btn-primary btn-rounded w-md waves-effect waves-light m-t-15 m-b-15 m-l-15">
+                                        Incluir
+                                    </button>
+                                </div>
+                                <div class="col">
+                                    <span>Prioridade em Processo</span>
+                                    <table class="table table-bordered col">
+                                        <caption>0 resultados encontrados</caption>
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>Prioridade do processo</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="peticoes_e_docs">
+                        <div class="row">
+                            <div class="col">
+                                <label for="tipodoc" class="col-form-label">Tipo de Documento</label>
+                                <select id="tipodoc" class="form-control">
+                                    <option>Selecione</option>
+                                    <option>Petição Inicial</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <label for="desc" class="col-form-label">Descrição</label>
+                                <input name="desc" class="form-control"></input>
+                            </div>
+                            <div class="col">
+                                <label for="num" class="col-form-label">Número (Opcional)</label>
+                                <input name="num" class="form-control"></input>
+                            </div>
+                            <div class="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="sigiloso">
+                                    <label class="form-check-label" for="sigiloso">
+                                        Sigiloso
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-t-15">
+                            <div id="editor"></div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="protocolar_inicial">
+                        <span>Dados do Processo</span>
+                        <div class="row m-t-15 m-b-15">
+                            <div class="col">
+                                <div class="d-flex flex-column">
+                                    <span>
+                                        <strong>Número do processo:</strong> ??
+                                    </span>
+                                    <span>
+                                        <strong>Jurisdição:</strong> Seção Judiciária do Distrito Federal
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="d-flex flex-column">
+                                    <span>
+                                        <strong>Orgão julgador:</strong> ??
+                                    </span>
+                                    <span>
+                                        <strong>Classe:</strong> MONITORIA (40)
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="d-flex flex-column">
+                                    <span>
+                                        <strong>Data de distribuição:</strong> ??
+                                    </span>
+                                    <span>
+                                        <strong>Valor da causa:</strong> R$ 0,00
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <span>Detalhes do processo</span>
+                        <div class="row m-t-15">
+                            <div class="col">
+                                <div class="d-flex flex-column">
+                                    <span>
+                                        <strong>Assuntos:</strong>
+                                    </span>
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Cód</th>
+                                                <th>Assunto</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    50006
+                                                </td>
+                                                <td>A pedido, a critério da Administração</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="d-flex flex-column">
+                                    <span>
+                                        <strong>Segredo de justiça:</strong> Não
+                                    </span>
+                                    <span>
+                                        <strong>Polo ativo:</strong> ??
+                                    </span>
+                                    <span>
+                                        <strong>Justiça gratuita:</strong> Não
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="d-flex flex-column">
+                                    <span>
+                                        <strong>Polo passivo:</strong> ??
+                                    </span>
+                                    <span>
+                                        <strong>Pedido de liminar ou de antecipação de tutela?</strong> Não
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <span>Documentos</span>
+                        <div class="row">
+                            <div class="col-6 col-md-4">
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="apartirde" class="col-form-label">ID a partir de</label>
+                                        <input id="apartirde" class="form-control"></input>
+                                    </div>
+                                    <div class="col">
+                                        <label for="ate" class="col-form-label">Até</label>
+                                        <input id="ate" class="form-control"></input>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 20px;">
+                                    <button class="btn btn-primary btn-rounded w-md waves-effect waves-light m-b-5"
+                                        style="margin-right: 15px;">Pesquisar
+                                    </button>
+                                    <button class="btn btn-rounded w-md waves-effect waves-light m-b-5">Limpar</button>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <table class="table table-bordered">
+                                    <caption>0 resultados encontrados</caption>
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>ID na Origem</th>
+                                            <th>Número</th>
+                                            <th>Origem</th>
+                                            <th>Juntado Em</th>
+                                            <th>Juntado Por</th>
+                                            <th>Documento</th>
+                                            <th>Tipo</th>
+                                            <th>Anexos</th>
+                                            <th>Certidão</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <hr>
+                        <button class="btn btn-primary waves-effect waves-light m-b-5 btn-lg btn-protocolar">
+                            Protocolar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer_area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p>Copyright &copy; 2020 <a href="#">Plarata - Data Analytics & Text Mining</a></p>
+                    <a href="https://gitlab.elattes.com.br/justica/hackathon/-/commits/master"><img
+                            alt="pipeline status"
+                            src="https://gitlab.elattes.com.br/justica/hackathon/badges/master/pipeline.svg" /></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/detect.js"></script>
+    <script src="assets/js/fastclick.js"></script>
+    <script src="assets/js/jquery.blockUI.js"></script>
+    <script src="assets/js/waves.js"></script>
+    <script src="assets/js/jquery.nicescroll.js"></script>
+    <script src="assets/js/jquery.slimscroll.js"></script>
+    <script src="assets/js/jquery.scrollTo.min.js"></script>
+    <script src="assets/plugins/morris/morris.min.js"></script>
+    <script src="assets/plugins/raphael/raphael-min.js"></script>
+    <script src="assets/js/jquery.core.js"></script>
+    <script src="assets/js/jquery.app.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/pages/dashboard1.js"></script>
+    <script src="assets/plugins/toastr/toastr.min.js"></script>
+
+    <script>
+
+        const ra = `
+        <td id="ra" scope="row">
+            <button id="btn-rmv-assunto" class="btn btn-icon waves-effect m-b-5">
+                <i class="fa fa-arrow-right"></i>
+            </button>
+        </td>
+        `;
+
+        const ap = `
+        <td id="assunto-principal">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="principal"
+                    id="principal" value="option1" checked>
+            </div>
+        </td>
+        `;
+
+        $(document).ready(function () {
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": false,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            };
+
+            // editor de texto
+            ClassicEditor
+                .create(document.querySelector('#editor'))
+                .catch(error => {
+                    console.error(error);
+                });
+
+            // Alertas do plugin
+            $('.btn-protocolar').click(function () {
+                [
+                    'Erro no campo 1',
+                    'Erro no campo 2',
+                    'Erro no campo 3',
+                    'Erro no campo 4',
+                    'Erro no campo 5',
+                    'Erro no campo 6'
+                ].forEach(m => {
+                    toastr.warning(m);
+                });
+            });
+
+            $("#Tab1-Incluir").click(function () {
+                $('#tabs li:eq(1) a').tab('show');
+            });
+
+            $("#btn-add-assunto").click(function (e) {
+                const td = $("#btn-add-assunto").parent().parent();
+                const tgtTable = $("#assuntosSelecionados");
+
+                [arrow, cod, ...rest] = td.clone().children();
+
+                tgtTable.append('<tr></tr>');
+                $("#assuntosSelecionados tr:last").append([
+                    ra,
+                    cod,
+                    ap,
+                    ...rest
+                ]).appendTo(tgtTable);
+            });
+
+            $("#btn-rmv-assunto").click(function (e) {
+                $("#assuntosSelecionados tr:last").remove();
+            });
+        });
+    </script>
+</body>
+
+</html>
