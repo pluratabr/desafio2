@@ -1,0 +1,85 @@
+body{
+    width: 430px;
+}
+div#container{
+   width: 100%;
+   height: 150px;
+   overflow-y: auto;
+}
+.progress-bar {
+    font-size: 12px;
+}
+.progress {
+    height: 15px;
+}
+.l-progress-fixed {
+    background-color: #e79a00 !important;
+}
+.s-desc {
+    font-size: 10px !important;
+}
+/* input[data-plugin='knob'] {
+    font: bold 13px Arial !important;
+} */
+.ci-notfound{
+    font-size: 18px;
+    color: lightgray;
+}
+
+.alert-success {
+    background-color: rgba(95, 190, 170, 0.3);
+    border-color: rgba(95, 190, 170, 0.4);
+    color: #5fbeaa;
+}
+.alert-warning {
+    background-color: rgba(255, 189, 74, 0.2);
+    border-color: rgba(255, 189, 74, 0.3);
+    color: #ffc300;
+}
+.alert-danger {
+    background-color: rgba(240, 80, 80, 0.2);
+    border-color: rgba(240, 80, 80, 0.3);
+    color: #fa3c4c;
+}
+.alert-info {
+    background-color: rgba(52, 211, 235, 0.2);
+    border-color: rgba(52, 211, 235, 0.3);
+    color: #47169d;
+}
+.alert {
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    
+}
+
+.fade {
+    transition: opacity .15s linear;
+}
+
+.ci-sugestoes {
+    max-height: 150px;
+    overflow-y: auto;
+    overflow-x: scroll;
+}
+
+.ci-margin-top {
+    margin-top: 10px;
+}
+
+/**
+* Ajuste no PJE
+*/
+
+div.identificacao {
+    color: #da37f4 !important;
+}
+
+select[id*='formProcessoTrf:classeJudicial:classeJudicialComboDecoration:classeJudicialCombo'] option:checked, 
+label[for*='formProcessoTrf:classeJudicial:classeJudicialComboDecoration:fieldclasseJudicialComboDiv'] {
+    color: #9b3cfa !important;
+    font-weight: bolder !important;
+}
+

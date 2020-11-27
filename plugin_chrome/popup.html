@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Plugin - Caçador de inconsistências">
+    <meta name="author" content="PLurata">
+    <title>Caçador de inconsistências</title>
+    <script src="scripts/jquery.2.2.4.min.js"></script>
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/app.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rancho">
+
+    <link rel="stylesheet" href="styles/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="styles/icons.css" type="text/css" />
+    <link rel="stylesheet" href="styles/template.css" type="text/css">
+    <link rel="stylesheet" href="styles/app.css" type="text/css">
+
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-3 col-md-6 ci-margin-top">
+                    <div class="card-box">
+                        <h4 class="header-title mt-0 m-b-0">Incidência do assunto principal <b><span
+                                    class="ci-subject">10989</span></b> escolhido para a classe <b><span
+                                    class="ci-class">ACÃO CIVEL COLETIVA (63)</span></b></h4>
+                        <div class="row">
+                            <div class="col-xl-12 col-md-12 ci-margin-top text-center">
+                                <div class="widget-chart-1" style="margin-left: 35%;">
+                                    <div class="widget-chart-box-1">
+                                        <input data-plugin="knob" data-width="80" data-height="80" data-fgColor="#5b69bc"
+                                            data-bgColor="#B8E6F4" value="58" data-skin="tron" data-angleOffset="180"
+                                            data-readOnly=true data-thickness=".15" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-12 col-md-12 ci-margin-top">
+                                <div class="progress" style="width: 100%;margin-bottom: 0px;">
+                                    <div role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                        style="width: 33%;" class="progress-bar progress-bar-danger"> <small>Abaixo de
+                                            30%</small></div>
+                                    <div role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                        style="width: 33%;" class="progress-bar progress-bar-warning l-progress-fixed"><small>Entre 31% e
+                                            69% </small></div>
+                                    <div role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                        style="width: 34%;" class="progress-bar progress-bar-success active">
+                                        <small>Acima de 70% </small></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 ">
+                    <div class="card-box">
+                        <h3 class="header-title m-t-0 m-b-30">Assuntos com maior incidência para essa mesma classe:</h3>
+                        <div class="ci-sugestoes text-center"></div>
+                    </div>
+                    <div>
+                        <p class="text-center">
+                            Para mais informações sobre assuntos no portal do CNJ
+                        </p>
+                        <a class="btn btn-block btn--md btn-inverse waves-effect waves-light"
+                            href="https://www.cnj.jus.br/sgt/consulta_publica_assuntos.php" target="_blank">
+                            CLIQUE AQUI
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- KNOB JS -->
+    <!--[if IE]>
+        <script type="text/javascript" src="assets/plugins/jquery-knob/excanvas.js"></script>
+        <![endif]-->
+    <script src="scripts/jquery.knob.js"></script>
+</body>
+
+</html>
