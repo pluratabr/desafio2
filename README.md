@@ -59,8 +59,6 @@ Do ponto de vista tecnológico, nossa solução é composta de:
     
 -   Uma API REST (Representational State Transfer) para interoperabilidade de recursos entre os componentes distribuídos
 
-## Plugin
-
 
 # Instalação do Plugin
 1. Faça o donwload do arquivo zip clicando [aqui](https://https://hackathon.plurata.com.br/plugin/buscador-inconsistencias-extensao-chrome.zip)
