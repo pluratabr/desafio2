@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Plurata - Data Analytics & Text Mining">
+    <meta name="author" content="Plurata">
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <title>Plurata - Data Analytics & Text Mining</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rancho">
+    <!--Morris Chart CSS -->
+    <link rel="stylesheet" href="assets/plugins/morris/morris.css">
+    <!-- App css -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+    <!-- App favicon -->
+    <!--Morris Chart CSS -->
+    <link rel="stylesheet" href="assets/plugins/morris/morris.css">
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+    <script src="assets/js/modernizr.min.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+    <style>
+        .select2-container{
+            width: 200px !important;  
+        }
+        
+        .clustering-dendo .node circle {
+          fill: #999;
+        }
+        
+        .clustering-dendo .node text {
+          font: 10px sans-serif;
+        }
+        
+        .clustering-dendo .node--internal circle {
+          fill: #555;
+        }
+        
+        .clustering-dendo .node--internal text {
+          text-shadow: 0 1px 0 #fff, 0 -1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff;
+        }
+        
+        .clustering-dendo .link {
+          fill: none;
+          stroke: #555;
+          stroke-opacity: 0.4;
+          stroke-width: 1.5px;
+        }
+        
+        </style>
+</head>
+
+<body>
+    <div id="droba-loader">
+        <div class="loader"></div>
+    </div>
+    <!-- Navigation Bar-->
+    <header id="topnav">
+        <div class="topbar-main">
+            <div class="container-fluid">
+                <!-- Logo container-->
+                <div class="logo">
+                    <!-- Image Logo -->
+                    <a href="../../index.html" class="logo">
+                        <img src="assets/images/logo-plurata.png" alt="" height="26" class="logo-small">
+                        <img src="assets/images/logo-plurata.png" alt="" height="24" class="logo-large">
+                    </a>
+                </div>
+                <!-- End Logo container-->
+                <div class="menu-extras topbar-custom">
+                    <ul class="list-unstyled topbar-right-menu float-right mb-0">
+                        <li class="menu-item">
+                            <!-- Mobile menu toggle-->
+                            <a class="navbar-toggle nav-link">
+                                <div class="lines">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </a>
+                            <!-- End mobile menu toggle-->
+                        </li>
+                        <li>
+                            <a class="btn btn-purple btn-trans waves-effect w-md waves-light m-b-5 btn-plurata"
+                                style="margin-top: 15px;" href="../../index.html">VOLTAR</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- end menu-extras -->
+                <div class="clearfix"></div>
+            </div> <!-- end container -->
+        </div>
+        <!-- end topbar-main -->
+        <div class="navbar-custom">
+            <div class="container-fluid">
+                <div id="navigation">
+                    <!-- Navigation Menu-->
+                    <ul class="navigation-menu">
+                        <li>
+                            <a href="desafio1.html"><i class="mdi mdi-view-dashboard"></i><span> Dashboard 1</span></a>
+                        </li>
+                        <li>
+                            <a href="dashboard2-d1.html"><i class="mdi mdi-view-dashboard"></i><span> Dashboard 2</span></a>
+                        </li>
+                        <li>
+                            <a href="clusterizacao.html"><i class="mdi mdi-vector-circle"></i><span> Clusterização</span></a>
+                        </li>
+                        <li>
+                            <a href="comparacao.html"><i class=" mdi mdi-vector-arrange-above"></i><span> Comparações</span></a>
+                        </li>
+                        <li class="pull-right hide-phone m-t-15">
+                            DESAFIO 1
+                        </li>
+                    </ul>
+
+                    <!-- End navigation menu -->
+                </div> <!-- end #navigation -->
+            </div> <!-- end container -->
+        </div> <!-- end navbar-custom -->
+    </header>
+    <!-- End Navigation Bar-->
+    <div class="wrapper">
+        <div class="container-fluid">
+            <!-- Page-Title -->
+            <div class="row">
+                <div class="col-sm-3">
+                    <h4 class="page-title">Clusterização</h4>
+                </div>
+                <div class="col-sm-9">
+                    <div class="pull-right" style="padding-top: 15px; margin-left: 15px;">
+                        <select class="select2">
+                                <option value="CT">Vara</option>
+                                <option value="CT">Gabinete da Presidencia</option>
+                                <option value="DE">Secretaria-Geral Judiciária</option>
+                                <option value="FL">SEXTA TURMA</option>
+                                <option value="GA">QUINTA TURMA</option>
+                                <option value="IN">GAbinete da Vice Presidência</option>
+                                <option value="ME">QUARTA TURMA</option>
+                        </select>
+                    </div>
+                    <div class="pull-right" style="padding-top: 15px; margin-left: 15px;">
+                        <select class="select2">
+                                <option value="CT">Tribunal</option>
+                                <option value="CT">TRE</option>
+                                <option value="DE">TST</option>
+                                <option value="FL">STJ</option>
+                                <option value="GA">TRF4</option>
+                                <option value="IN">TRF3</option>
+                                <option value="ME">TRF5</option>
+                                <option value="MD">TRF2</option>
+                                <option value="MA">TRF1</option>
+                                <option value="MI">TJM</option>
+                                <option value="NH">STM</option>
+                        </select>
+                    </div>
+                    <div class="pull-right" style="padding-top: 15px;margin-left: 15px;">
+                        <select class="select2">
+                                <option value="CT">Justiça</option>
+                                <option value="CT">G1</option>
+                                <option value="DE">SUP</option>
+                                <option value="FL">G2</option>
+                                <option value="GA">Sup</option>
+                                <option value="IN">JE</option>
+                                <option value="ME">TR</option>
+                                <option value="MD">TRU</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-xl-12 col-md-12">
+                    <div class="card-box">
+                        <div class="clustering" style="width: 100%;text-align:center;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- /Right-bar -->
+        </div>
+        <!-- end wrapper -->
+        <!-- Footer -->
+        <footer class="footer_area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <p>Copyright &copy; 2020 <a href="#">Plarata - Data Analytics & Text Mining</a></p>
+                        <a href="https://gitlab.elattes.com.br/justica/hackathon/-/commits/master"><img
+                                alt="pipeline status"
+                                src="https://gitlab.elattes.com.br/justica/hackathon/badges/master/pipeline.svg" /></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer -->
+        <!-- jQuery  -->
+        <!-- jQuery  -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/popper.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/detect.js"></script>
+        <script src="assets/js/fastclick.js"></script>
+        <script src="assets/js/jquery.blockUI.js"></script>
+        <script src="assets/js/waves.js"></script>
+        <script src="assets/js/jquery.nicescroll.js"></script>
+        <script src="assets/js/jquery.slimscroll.js"></script>
+        <script src="assets/js/jquery.scrollTo.min.js"></script>
+        <!--Morris Chart-->
+        <script src="assets/plugins/morris/morris.min.js"></script>
+        <script src="assets/plugins/raphael/raphael-min.js"></script>
+        <!-- App js -->
+        <script src="assets/js/jquery.core.js"></script>
+        <script src="assets/js/jquery.app.js"></script>
+        <script src="assets/js/main.js"></script>
+        <script src="assets/js/pages/dashboard1.js"></script>
+        <script src="assets/plugins/select2/js/select2.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            jQuery(document).ready(function() {
+                // init Select2
+                $(".select2").select2();
+            });
+
+            dataset = {
+                "children": [{"Name":"Plenário - TREDF","Count":4319},
+                    {"Name":"Gabinete da Presidência","Count":4159},
+                    {"Name":"Secretaria-Geral Judiciária","Count":2583},
+                    {"Name":"Sexta Turma","Count":2074},
+                    {"Name":"Primeira Turma","Count":1894},
+                    {"Name":"Quinta Turma","Count":1809},
+                    {"Name":"Gabinete da Vice-Presidência","Count":1713},
+                    {"Name":"Quarta Turma","Count":1636},
+                    {"Name":"Segunda Turma","Count":1566},
+                    {"Name":"Primeira Vara Federal","Count":1511},
+                    {"Name":"Ga. 24 - Desenbargador","Count":1489},
+                    {"Name":"Segunda Vara Federal","Count":1487},
+                    {"Name":"Quinta Zona Eleitoral","Count":1423},
+                    {"Name":"Nona Vara Federal","Count":1341}]
+            };
+
+            diameter = 600;
+            diameterW = 600;
+    
+            var cluster = function(){
+                
+                var color = d3.scaleOrdinal(d3.schemeCategory20);
+        
+                var bubble = d3.pack(dataset)
+                    .size([diameterW, diameter])
+                    .padding(1.5);
+        
+                svg = d3.select("div.clustering")
+                    .append("svg")
+                    .attr("width", diameterW)
+                    .attr("height", diameter)
+                    .attr("class", "bubble");
+        
+                var nodes = d3.hierarchy(dataset)
+                    .sum(function(d) { return d.Count; });
+        
+                var node = svg.selectAll(".node")
+                    .data(bubble(nodes).descendants())
+                    .enter()
+                    .filter(function(d){
+                        return  !d.children
+                    })
+                    .append("g")
+                    .attr("class", "node")
+                    .attr("transform", function(d) {
+                        return "translate(" + d.x + "," + d.y + ")";
+                    });
+        
+                node.append("title")
+                    .text(function(d) {
+                        return d.Name + ": " + d.Count;
+                    });
+        
+                node.append("circle")
+                    .attr("r", function(d) {
+                        return d.r;
+                    })
+                    .style("fill", function(d,i) {
+                        return color(i);
+                    });
+        
+                node.append("text")
+                    .attr("dy", ".2em")
+                    .style("text-anchor", "middle")
+                    .text(function(d) {
+                        return d.data.Name.substring(0, d.r / 3);
+                    })
+                    .attr("font-family", "sans-serif")
+                    .attr("font-size", function(d){
+                        return d.r/10;
+                    })
+                    .attr("fill", "white");
+        
+                node.append("text")
+                    .attr("dy", "1.3em")
+                    .style("text-anchor", "middle")
+                    .text(function(d) {
+                        return d.data.Count;
+                    })
+                    .attr("font-family",  "Gill Sans", "Gill Sans MT")
+                    .attr("font-size", function(d){
+                        return d.r/5;
+                    })
+                    .attr("fill", "white");
+        
+                d3.select(self.frameElement)
+                    .style("height", diameter + "px");
+        
+                d3.select(window).on('resize', resizeFunction);
+
+                function resizeFunction(e) {
+                    
+                }
+            } 
+            
+            cluster();
+
+            var dendogramfunction = function () {
+
+                var svg = d3.select("div.clustering-dendo")
+                    .append("svg")
+                    .attr("width", diameterW)
+                    .attr("height", diameter);
+               
+                    var width = +svg.attr("width"),
+                        height = +svg.attr("height"),
+                        g = svg.append("g").attr("transform", "translate(40,0)");
+
+                    var tree = d3.tree()
+                        .size([height - 400, width - 160]);
+
+                    var cluster = d3.cluster()
+                        .size([height, width - 160]);
+
+                    var stratify = d3.stratify()
+                        .parentId(function(d) { return d.id.substring(0, d.id.lastIndexOf(".")); });
+
+                    d3.csv("cluster.csv", function(error, data) {
+                    if (error) throw error;
+
+                    var root = stratify(data)
+                        .sort(function(a, b) { return (a.height - b.height) || a.id.localeCompare(b.id); });
+
+                    cluster(root);
+
+                    var link = g.selectAll(".link")
+                        .data(root.descendants().slice(1))
+                        .enter().append("path")
+                        .attr("class", "link")
+                        .attr("d", diagonal);
+
+                    var node = g.selectAll(".node")
+                        .data(root.descendants())
+                        .enter().append("g")
+                        .attr("class", function(d) { return "node" + (d.children ? " node--internal" : " node--leaf"); })
+                        .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
+
+                    node.append("circle")
+                        .attr("r", 2.5);
+
+                    node.append("text")
+                        .attr("dy", 3)
+                        .attr("x", function(d) { return d.children ? -8 : 8; })
+                        .style("text-anchor", function(d) { return d.children ? "end" : "start"; })
+                        .text(function(d) { return d.id.substring(d.id.lastIndexOf(".") + 1); });
+
+                    d3.selectAll("input")
+                        .on("change", changed);
+
+                    var timeout = setTimeout(function() {
+                        d3.select("input[value=\"tree\"]")
+                            .property("checked", true)
+                            .dispatch("change");
+                    }, 1000);
+
+                    function changed() {
+                        timeout = clearTimeout(timeout);
+                        (this.value === "tree" ? tree : cluster)(root);
+                        var t = d3.transition().duration(750);
+                        node.transition(t).attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
+                        link.transition(t).attr("d", diagonal);
+                    }
+                    });
+
+                    function diagonal(d) {
+                    return "M" + d.y + "," + d.x
+                        + "C" + (d.parent.y + 100) + "," + d.x
+                        + " " + (d.parent.y + 100) + "," + d.parent.x
+                        + " " + d.parent.y + "," + d.parent.x;
+                    }
+            }
+            dendogramfunction();
+        </script>
+</body>
+
+</html>

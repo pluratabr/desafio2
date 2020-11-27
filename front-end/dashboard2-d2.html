@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Plurata - Data Analytics & Text Mining">
+    <meta name="author" content="Plurata">
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <title>Plurata - Data Analytics & Text Mining</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rancho">
+    <!--Morris Chart CSS -->
+    <link rel="stylesheet" href="assets/plugins/morris/morris.css">
+    <!-- App css -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- App favicon -->
+    <!--Morris Chart CSS -->
+    <link rel="stylesheet" href="assets/plugins/morris/morris.css">
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+    <script src="assets/js/modernizr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+</head>
+
+<body>
+    <div id="droba-loader">
+        <div class="loader"></div>
+    </div>
+    <!-- Navigation Bar-->
+    <header id="topnav">
+        <div class="topbar-main">
+            <div class="container-fluid">
+                <!-- Logo container-->
+                <div class="logo">
+                    <!-- Image Logo -->
+                    <a href="../../index.html" class="logo">
+                        <img src="assets/images/logo-plurata.png" alt="" height="26" class="logo-small">
+                        <img src="assets/images/logo-plurata.png" alt="" height="24" class="logo-large">
+                    </a>
+                </div>
+                <!-- End Logo container-->
+                <div class="menu-extras topbar-custom">
+                    <ul class="list-unstyled topbar-right-menu float-right mb-0">
+                        <li class="menu-item">
+                            <!-- Mobile menu toggle-->
+                            <a class="navbar-toggle nav-link">
+                                <div class="lines">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </a>
+                            <!-- End mobile menu toggle-->
+                        </li>
+                        <li>
+                            <a class="btn btn-purple btn-trans waves-effect w-md waves-light m-b-5 btn-plurata" style="margin-top: 15px;" href="https://hackathon.plurata.com.br">VOLTAR</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- end menu-extras -->
+                <div class="clearfix"></div>
+            </div> <!-- end container -->
+        </div>
+        <!-- end topbar-main -->
+        <div class="navbar-custom">
+            <div class="container-fluid">
+                <div id="navigation">
+                    <!-- Navigation Menu-->
+                    <ul class="navigation-menu">
+                        <li>
+                            <a href="desafio2.html"><i class="mdi mdi-view-dashboard"></i><span> Dados Gerais </span></a>
+                        </li>
+                        <li>
+                            <a href="./dashboard2-d2.html" style="color:#47169d;"><i class="mdi mdi-view-dashboard"></i><span> Inconsistências</span></a>
+                        </li>
+                        <li>
+                            <a href="./regras-tecnicas.html"><i class="mdi mdi-tune-vertical"></i><span> Regras Técnicas - Plugin </span></a>
+                        </li>
+                    </ul>
+                    
+                    <!-- End navigation menu -->
+                </div> <!-- end #navigation -->
+            </div> <!-- end container -->
+        </div> <!-- end navbar-custom -->
+    </header>
+    <!-- End Navigation Bar-->
+    <div class="wrapper">
+        <div class="container-fluid">
+            <!-- Page-Title -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <h4 class="page-title">Dashboard</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card-box">
+                        <canvas id="myChart"></canvas>
+                        <script>
+                        const labels = ["CRITERION-1", "CRITERION-2", "CRITERION-3", "CRITERION-4", "CRITERION-5"];
+                        const serie = [45, 50, 65, 40, 45];
+
+                        new Chart(document.getElementById('myChart').getContext('2d'), {
+                        type: "radar",
+                        data: {
+                            labels,
+                            datasets: [{
+                            backgroundColor: "#0000FF33",
+                            label: "SERIE-1",
+                            data: serie,
+                            }],
+                        },
+                        options: {
+                            title: {
+                            display: true,
+                            text: "ChartJS Radar (3.0.0-alpha.2) -- Chart with scale min/max specified",
+                            },
+                            // Min/Max new location => https://www.chartjs.org/docs/next/getting-started/v3-migration/#specific-changes
+                            scale: {
+                            display: true,
+                            min: 0,
+                            max: 100,
+                            ticks: {
+                                showLabelBackdrop: false,
+                            },
+                            },
+                            responsive: false,
+                        },
+                        });
+                    </script>
+                    </div>
+                </div>
+            </div>
+
+            <!-- /Right-bar -->
+        </div>
+        <!-- end wrapper -->
+        <!-- Footer -->
+        <footer class="footer_area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <p>Copyright &copy; 2020 <a href="#">Plarata - Data Analytics & Text Mining</a></p>
+                        <a href="https://gitlab.elattes.com.br/justica/hackathon/-/commits/master"><img alt="pipeline status" src="https://gitlab.elattes.com.br/justica/hackathon/badges/master/pipeline.svg" /></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer -->
+        <!-- jQuery  -->
+        <!-- jQuery  -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/popper.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/detect.js"></script>
+        <script src="assets/js/fastclick.js"></script>
+        <script src="assets/js/jquery.blockUI.js"></script>
+        <script src="assets/js/waves.js"></script>
+        <script src="assets/js/jquery.nicescroll.js"></script>
+        <script src="assets/js/jquery.slimscroll.js"></script>
+        <script src="assets/js/jquery.scrollTo.min.js"></script>
+        <!--Morris Chart-->
+        <script src="assets/plugins/morris/morris.min.js"></script>
+        <script src="assets/plugins/raphael/raphael-min.js"></script>
+        <!-- App js -->
+        <script src="assets/js/jquery.core.js"></script>
+        <script src="assets/js/jquery.app.js"></script>
+        <script src="assets/js/main.js"></script>
+        <script src="assets/js/pages/dashboard1.js"></script>
+</body>
+
+</html>
