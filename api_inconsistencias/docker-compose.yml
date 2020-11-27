@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  api:
+    restart: unless-stopped
+    build:
+      context: api/
+      dockerfile: Dockerfile
+    volumes:
+      - ./api:/api/
+    ports:
+      - "8080:8080"
+

@@ -4,7 +4,7 @@
 Alecsander Sena, Gabriel Alves, Rafaela Bueno, Raul Carvalho, Ruben Cruz, Yuri Serka.
 
 ## Link da Solução 
-https://hackathon.plurata.com.br/assets/pages/desafio2.html
+https://hackathon.plurata.com.br/
 
 ## Requisitos para utilização do código
 
@@ -12,7 +12,7 @@ https://hackathon.plurata.com.br/assets/pages/desafio2.html
  - R version 4.0.0 (2020-04-24)
 
 ## Como executar o código
-O código pode ser utilizado através da interface do Rstudio ou via RScript.
+O código em R pode ser utilizado através da interface do Rstudio ou via RScript.
 
 
 ## Licença 
@@ -50,14 +50,10 @@ Do ponto de vista tecnológico, nossa solução é composta de:
 
 -   Uma aplicação web escrita nas linguagens HTML 5 + Javascript.
     
--   Um modelo de regressão logística escrito na linguagem R.
-    
 -   Um modelo de clusterização escrito na linguagem R.
     
 -   Um banco de dados Postgres.
     
--   Um servidor de notificações (PUSH) instantâneas.
-    
--   Uma extensão para navegadores.
+-   Uma extensão para o navegador GoogleChrome.
     
 -   Uma API REST (Representational State Transfer) para interoperabilidade de recursos entre os componentes distribuídos
