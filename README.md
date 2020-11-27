@@ -44,7 +44,8 @@ Para realizar a leitura dos arquivos JSON disponibilizados, foi desenvolvida uma
 
 No que diz respeito à arquitetura, a figura esquemática demonstra as diferentes soluções utilizadas.
 
-  
+ ![Imgur](https://i.imgur.com/kBJOD59.jpeg)
+
 
 Do ponto de vista tecnológico, nossa solução é composta de:
 
